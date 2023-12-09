@@ -6,19 +6,20 @@ public class _44_UniquePINCodes {
 
         Scanner scanner = new Scanner(System.in);
 
-        int ceilFirstNum = Integer.parseInt(scanner.nextLine());
-        int ceilSecondNum = Integer.parseInt(scanner.nextLine());
-        int ceilThirdNum = Integer.parseInt(scanner.nextLine());
+        int borderFirstNum = Integer.parseInt(scanner.nextLine());
+        int borderSecondNum = Integer.parseInt(scanner.nextLine());
+        int borderThirdNum = Integer.parseInt(scanner.nextLine());
 
         boolean simple = true;
+
         int count = 1;
 
-        for (int i = 1; i <= ceilFirstNum; i++){
-            for (int j = 2; j <= ceilSecondNum; j++) {
+        for (int i = 2; i <= borderFirstNum; i++) {
+            for (int j = 2; j <= borderSecondNum; j++) {
                 simple = true;
                 if (j > 1) {
                     count = 1;
-                    for (int k = 2; k <= ceilSecondNum; k++) {
+                    for (int k = 2; k <= borderSecondNum; k++) {
                         if (j % k == 0) {
                             count++;
                             if (count == 3) {
@@ -26,16 +27,17 @@ public class _44_UniquePINCodes {
                                 break;
                             }
                         }
-
                     }
                 }
-                for (int k = 1; k <= ceilThirdNum; k++) {
+                for (int k = 1; k <= borderThirdNum; k++) {
                     if (i % 2 == 0 && k % 2 == 0 && simple && count == 2) {
                         System.out.printf("%d %d %d\n", i, j, k);
                     }
                 }
             }
         }
+
     }
 
 }
+
